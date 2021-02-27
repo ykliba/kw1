@@ -1,0 +1,14 @@
+.header {
+  height: 100px;
+  width: 100%;
+  background-color: gray;
+  .title { 
+    font-size: 40px;
+    padding-top: 30px;
+    padding-left: 100px;
+    .link {
+      text-decoration: none;
+      color: lavenderblush;
+    }
+  }
+}
