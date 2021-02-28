@@ -2,16 +2,32 @@
   height: 100px;
   width: 100%;
   background-color: gray;
+  
   .title { 
     font-size: 40px;
     padding-top: 30px;
     padding-left: 100px;
+    width: 80px;
     &:hover {
       opacity: 0.5;
     }
     .link {
       text-decoration: none;
       color: lavenderblush;
+    }
+  }
+  .header_menu {
+    text-align: right;
+    margin-right: 15px;
+    
+    .menu_left {
+      text-decoration: none;
+      color: lavenderblush;
+    }
+    .menu_right {
+      text-decoration: none;
+      color: lavenderblush;
+      margin-left: 15px;
     }
   }
 }
