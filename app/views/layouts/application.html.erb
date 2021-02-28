@@ -17,7 +17,7 @@
       </div>
       <div class="header_menu">
         <% if user_signed_in? %>
-          <%= link_to("ログアウト", destroy_user_session_path, class: "logout") %>
+          <%= link_to("ログアウト", destroy_user_session_path, method: :delete, class: "logout") %>
           <%= link_to("新規投稿", new_post_path, class: "new_post")%>
         <% else %>
           <%= link_to("ログイン", new_user_session_path, class: "login") %>

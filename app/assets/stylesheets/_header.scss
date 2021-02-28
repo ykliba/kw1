@@ -6,6 +6,9 @@
     font-size: 40px;
     padding-top: 30px;
     padding-left: 100px;
+    &:hover {
+      opacity: 0.5;
+    }
     .link {
       text-decoration: none;
       color: lavenderblush;
