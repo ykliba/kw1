@@ -3,11 +3,11 @@ require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
 
 CarrierWave.configure do |config|
-  if Rails.env.production? || Rails.env.development?
+  
     config.storage :fog
     config.fog_provider = 'fog/aws'
     config.fog_directory  = 'kw1-image' 
-    config.fog_public = false
+    config.fog_public     = true
     config.fog_credentials = {
       provider: 'AWS',
       aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'], 
@@ -15,8 +15,5 @@ CarrierWave.configure do |config|
       region: 'ap-northeast-1',   
       path_style: true
     }
-  else
-    config.storage :file
-    config.enable_processing = false if Rails.env.test?
-  end
+
 end 
