@@ -1,0 +1,17 @@
+<div class="show_main">
+  <div class="show_text">
+    <%= @post.text %>
+  </div>
+  <div class="show_image">
+    <%= image_tag @post.image.url, size: "400x400" %>
+  </div>
+
+  <% if current_user %>
+    <div class="edit_link">
+      <%= link_to("編集", edit_post_path(@post.id)) %>
+    </div>
+    <div class="destroy_link">
+      <%= link_to("削除", post_path(@post.id), method: :delete) %>
+    </div>
+  <% end %>
+</div>

@@ -15,4 +15,3 @@ CarrierWave.configure do |config|
     config.fog_directory  = 'kw1-image'     
 end 
 
-CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
