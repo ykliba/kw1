@@ -19,12 +19,14 @@
         <% if user_signed_in? %>
           <%= link_to("ログアウト", destroy_user_session_path, method: :delete, class: "menu_left") %>
           <%= link_to("新規投稿", new_post_path, class: "menu_right")%>
+          <%= link_to(current_user.name) %>
         <% else %>
           <%= link_to("ログイン", new_user_session_path, class: "menu_left") %>
           <%= link_to("新規登録", new_user_registration_path, class: "menu_right") %>
         <% end %>
       </div>
     </div>
+
     <%= yield %>
   </body>
 </html>

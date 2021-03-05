@@ -6,5 +6,9 @@ class User < ApplicationRecord
   
   has_many :posts
   has_many :comments
+
+  def posts
+    return Post.where(user_id: self.id)
+  end
   
 end

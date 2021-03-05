@@ -1,6 +1,11 @@
 <div class="post_field">
   <%= form_with model: @post, local: true do |form| %>
-    <%= form.text_area :text, placeholder: @post.text, class: "post_text" %>
+    <% @post.errors.full_messages.each do |message| %>
+      <div class="form-error">
+        <%= message %>
+      </div>
+    <% end %>
+    <%= form.text_area :text, class: "post_text" %>
     <%= form.file_field :image, class: "post_image" %>
     <%= form.submit "編集", class: "post_btn" %>
   <% end %>

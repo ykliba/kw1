@@ -1,5 +1,10 @@
 <div class="post_field">
   <%= form_with model: @post, local: true do |form| %>
+    <% @post.errors.full_messages.each do |message| %>
+      <div class="form-error">
+        <%= message %>
+      </div>
+    <% end %>
     <%= form.text_area :text, class: "post_text" %>
     <%= form.file_field :image, class: "post_image" %>
     <%= form.submit "投稿", class: "post_btn" %>

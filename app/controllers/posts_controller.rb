@@ -7,12 +7,12 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def create
-    @post = Post.create(post_params)
+  def create   
+    @post = Post.create(post_params)  
     if @post.save
       redirect_to root_path
     else
-      redirect_to new_post_path
+      render :new
     end
   end
 
@@ -26,11 +26,10 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find_by(id: params[:id])
-    @post.update(post_params)
-    if @post.save
+    if @post.update(post_params)  
       redirect_to post_path(@post.id)
     else
-      redirect_to edit_post_path(@post.id)
+      render :edit
     end
   end
 
