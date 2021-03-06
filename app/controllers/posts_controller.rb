@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.all.order(updated_at: :desc).page(params[:page]).per(5)  
   end
 
   def new
@@ -18,6 +18,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @user = User.find_by(id: @post.user_id)
   end
 
   def edit
@@ -36,7 +37,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
-    redirect_to root_path
+    redirect_to user_path(current_user.id)
   end
 
   private

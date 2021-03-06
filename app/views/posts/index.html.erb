@@ -7,7 +7,11 @@
       <div class="image">
         <%= link_to image_tag(src = post.image.url, size: '250x250'), post_path(post.id) %>
       </div>
+      <div class="user_link">
+        
+        <%= link_to(post.user.name, user_path(post.user.id)) %>
+      </div>
     <% end %>
   </div>
-
+  <%= paginate @posts %>
 </div>

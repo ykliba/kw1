@@ -128,6 +128,18 @@ GEM
     ipaddress (0.8.3)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
+    kaminari (1.2.0)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.0)
+      kaminari-activerecord (= 1.2.0)
+      kaminari-core (= 1.2.0)
+    kaminari-actionview (1.2.0)
+      actionview
+      kaminari-core (= 1.2.0)
+    kaminari-activerecord (1.2.0)
+      activerecord
+      kaminari-core (= 1.2.0)
+    kaminari-core (1.2.0)
     listen (3.4.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -276,6 +288,7 @@ DEPENDENCIES
   dotenv-rails
   fog-aws
   jbuilder (~> 2.7)
+  kaminari
   listen (~> 3.3)
   mini_magick
   mysql2

@@ -5,21 +5,11 @@
   <div class="show_image">
     <%= image_tag @post.image.url, size: "400x400" %>
   </div>
+  <div class="show_name">
+    <%= @user.name %>
+  </div>
+<% if user_signed_in? %>
+  <%= link_to("コメント") %>
+<% end %>
 
-  <% if current_user.id == @post.user_id %>
-    <div class="edit_link">
-      <%= link_to("編集", edit_post_path(@post.id)) %>
-    </div>
-    <div class="destroy_link">
-      <%= link_to("削除", post_path(@post.id), method: :delete) %>
-    </div>
-    <div class="comment_link">
-      <%= link_to("コメント") %>
-    </div>
-  <% elsif current_user.id != @post.user_id && user_signed_in? %>
-    <div class="comment_link">
-      <%= link_to("コメント") %>
-    </div>
-
-  <% end %>
 </div>
