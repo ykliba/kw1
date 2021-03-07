@@ -9,6 +9,9 @@
     <div class="image">
       <%= link_to image_tag(src = post.image.url, size: '250x250'), post_path(post.id) %>
     </div>
+    <div class="date">
+      <%= post.created_at.strftime("%Y-%m-%d %H:%M")%>
+    </div>  
     <% if current_user.id == post.user_id %>
       <%= link_to("編集", edit_post_path(post.id), class: "edit_link") %>
       <%= link_to("削除", post_path(post.id), method: :delete) %>

@@ -8,6 +8,9 @@
   <div class="show_name">
     <%= @user.name %>
   </div>
+  <div class="show_date">
+    <%= @post.created_at.strftime("%Y-%m-%d %H:%M")%>
+  </div>
 <% if user_signed_in? %>
   <%= link_to("コメント") %>
 <% end %>
