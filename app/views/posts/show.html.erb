@@ -14,5 +14,21 @@
 <% if user_signed_in? %>
   <%= link_to("コメント") %>
 <% end %>
+<div class="comment_input">
+  <%= form_with(model: [@post, @comment], local: true) do |f| %>
+    <%= f.text_area :text, placeholder: "コメント", class: "comment_text" %>
+    <%= f.submit "コメントする", class: "comment_btn" %>
+  <% end %>
+</div>
+<div class="comment_field">
+  <% @comments.each do |comment| %>
+    <ul>
+      <li>
+        <%= comment.text %>
+        <%= link_to "by#{comment.user.name}", user_path(comment.user_id) %>
+      </li>
+    </ul>
+  <% end %>
+</div>
 
 </div>
