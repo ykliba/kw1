@@ -6,7 +6,7 @@
     <%= image_tag @post.image.url, size: "400x400" %>
   </div>
   <div class="show_name">
-    <% if @post.user_id == current_user.id %>
+    <% if user_signed_in? && @post.user_id == current_user.id %>
       <%= @user.name %>
     <% else %>
       <%= link_to(@post.user.name, user_path(@post.user_id)) %>
@@ -16,14 +16,14 @@
     <%= @post.created_at.strftime("%Y-%m-%d %H:%M")%>
   </div>
 <% if user_signed_in? %>
-  <%= link_to("コメント") %>
+  <div class="comment_input">
+    <%= form_with(model: [@post, @comment], local: true) do |f| %>
+      <%= f.text_area :text, placeholder: "コメント", class: "comment_text" %>
+      <%= f.submit "コメントする", class: "comment_btn" %>
+    <% end %>
+  </div>
 <% end %>
-<div class="comment_input">
-  <%= form_with(model: [@post, @comment], local: true) do |f| %>
-    <%= f.text_area :text, placeholder: "コメント", class: "comment_text" %>
-    <%= f.submit "コメントする", class: "comment_btn" %>
-  <% end %>
-</div>
+
 <div class="comment_field">
   <% @comments.each do |comment| %>
     <ul>
